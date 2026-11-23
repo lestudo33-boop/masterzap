@@ -96,18 +96,18 @@ describe('search index cache', () => {
       json: () => Promise.resolve([]),
     }));
 
-    for (let index = 0; index < 81; index++) {
+    for (let index = 0; index < 101; index++) {
       await loadSearchIndex(`conversation-${index}`);
     }
 
-    expect(getSearchIndexCacheSize()).toBe(80);
+    expect(getSearchIndexCacheSize()).toBe(100);
     expect(isIndexLoaded('conversation-0')).toBe(false);
 
     await loadSearchIndex('conversation-1');
-    expect(globalThis.fetch).toHaveBeenCalledTimes(81);
+    expect(globalThis.fetch).toHaveBeenCalledTimes(101);
     await loadSearchIndex('conversation-0');
-    expect(globalThis.fetch).toHaveBeenCalledTimes(82);
-    expect(getSearchIndexCacheSize()).toBe(80);
+    expect(globalThis.fetch).toHaveBeenCalledTimes(102);
+    expect(getSearchIndexCacheSize()).toBe(100);
   });
 
   it('matches text regardless of accents', () => {

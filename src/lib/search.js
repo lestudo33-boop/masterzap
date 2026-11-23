@@ -12,7 +12,7 @@ const _indexes = new Map();
 const _pendingIndexes = new Map();
 let _activeIndexId = null;
 // All current conversations fit; future additions still have a hard ceiling.
-const MAX_CACHED_INDEXES = 80;
+const MAX_CACHED_INDEXES = 100;
 
 function getCachedIndex(conversationId) {
   if (!_indexes.has(conversationId)) return undefined;
@@ -38,15 +38,20 @@ function cacheIndex(conversationId, index) {
  *
  * @param {string} conversationId
  * @param {string} [basePath='/data']
+ * @param {function} [fetcher=fetch]
  * @returns {Promise<Array>}
  */
-export async function loadSearchIndex(conversationId, basePath = '/data') {
-  _activeIndexId = conversationId;
+export async function loadSearchIndex(
+  conversationId,
+  basePath = '/data',
+  { fetcher = (...args) => fetch(...args), activate = true } = {},
+) {
+  if (activate) _activeIndexId = conversationId;
   const cached = getCachedIndex(conversationId);
   if (cached) return cached;
   if (_pendingIndexes.has(conversationId)) return _pendingIndexes.get(conversationId);
 
-  const promise = fetch(dataUrl(`${basePath}/${conversationId}/search-index.json`))
+  const promise = fetcher(dataUrl(`${basePath}/${conversationId}/search-index.json`))
     .then(r => {
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return r.json();

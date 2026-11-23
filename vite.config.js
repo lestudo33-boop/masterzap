@@ -1,6 +1,15 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
+  server: {
+    proxy: {
+      '/api/master-ia': {
+        target: 'https://4En3bRYyfZ7s7DL7amhdTwAELdZsWywxSMusuchVtihc.node.k8s.prd.nos.ci',
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/api\/master-ia/, ''),
+      },
+    },
+  },
   define: {
     __DATA_BUILD_ID__: JSON.stringify(
       process.env.VERCEL_GIT_COMMIT_SHA || Date.now().toString(36)

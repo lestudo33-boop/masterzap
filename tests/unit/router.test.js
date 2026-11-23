@@ -79,9 +79,9 @@ describe('HashRouter', () => {
       });
     });
 
-    it('removed Master AI route → home', () => {
-      expect(HashRouter.parseHash('#/master-ai')).toEqual({
-        route: 'home',
+    it('#/master-ia → Master IA', () => {
+      expect(HashRouter.parseHash('#/master-ia')).toEqual({
+        route: 'master-ia',
         param: null,
         messageId: null,
       });
@@ -114,6 +114,11 @@ describe('HashRouter', () => {
     it('navigate("chatgpt") opens cited ChatGPT searches', () => {
       router.navigate('chatgpt');
       expect(window.location.hash).toBe('#/chatgpt');
+    });
+
+    it('navigate("master-ia") opens the Master IA screen', () => {
+      router.navigate('master-ia');
+      expect(window.location.hash).toBe('#/master-ia');
     });
 
     it('navigate("livestream") opens public live broadcasts', () => {

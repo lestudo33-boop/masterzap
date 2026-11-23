@@ -313,7 +313,7 @@ function standalone({ title, description, path, jsonLd, body }) {
 <meta property="og:url" content="${url}">
 <meta property="og:type" content="website">
 <meta property="og:image" content="${SITE}/assets/og-image.png">
-<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/assets/masterzap-logo.png">
 <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
 <script type="application/ld+json">
 ${JSON.stringify(jsonLd, null, 2)}

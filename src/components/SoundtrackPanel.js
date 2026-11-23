@@ -37,7 +37,7 @@ export function renderSoundtrackPanel({ onBack, onLoadTrack, currentTrackId = nu
   provenance.innerHTML = `
     <p><strong>Proveniência:</strong> a playlist abaixo foi publicada por terceiros. As faixas marcadas como execução relatada são registros separados, citados em reportagem, e não fazem parte dessa playlist.</p>
     <p>Em 9 de novembro de 2026, o UOL noticiou que o celular de Vorcaro se conectou ao som da academia particular de sua casa em São Paulo às 8h52; por quase uma hora, tocaram músicas gospel, incluindo “Caminho no Deserto” e “Eu Só Quero Tua Presença”, de Theo Rubia. A reportagem não comprova que essas faixas integrem a playlist de terceiros.</p>
-    <p>A API de metadados da Deezer não permite chamadas diretas pelo navegador (CORS); os créditos e as prévias foram conferidos na consulta pública, e a reprodução usa o widget oficial. Não foram armazenadas URLs MP3 temporárias. A busca oficial do YouTube exigiria uma chave não disponível; nenhum vídeo foi presumido.</p>
+    <p>Os créditos e as prévias foram conferidos por consultas públicas. A reprodução usa os aplicativos oficiais. Não foram armazenados arquivos temporários de áudio. A pesquisa oficial do YouTube exigiria mais informações, por isso nenhum vídeo foi presumido.</p>
     <p><strong>Contagem:</strong> a reportagem menciona 33 faixas, mas a relação textual recebida contém 32. A 33ª não foi inferida.</p>
     <a href="${PLAYLIST_URL}" target="_blank" rel="noopener noreferrer">Abrir playlist de referência no Spotify</a>
     <a href="https://noticias.uol.com.br/colunas/cezar-feitoza/2026/11/09/vorcaro-cogitou-ser-preso-apos-encontro-com-moraes-o-que-e-tremembe.htm" target="_blank" rel="noopener noreferrer">Abrir reportagem do UOL sobre a música na academia</a>
